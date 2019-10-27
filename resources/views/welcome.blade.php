@@ -20,19 +20,34 @@
 	<link href="{{ asset('07-comming-soon/css/styles.css') }}" rel="stylesheet">
 	
     <link href="{{ asset('07-comming-soon/css/responsive.css') }}" rel="stylesheet">
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
     
     <style>
         .youtubeiconbg { background: #F43846 !important; }
         .linkediniconbg { background: #3AA4F8 !important; }
+		.logo { max-width: 300px; }
+		.main-area:after { background: none; }
+		.main-area { color: #232323 !important; }
+		.font-white { color: #232323 !important; }
+		.social-btn { color: white !important; }
+		.list-heading { color: #232323 !important; }
+		#videopopup { padding: 0px; }
+		.jquery-modal { padding: 0px; }
+		.submit-btn { background-color: #ff3f63 !important; }
+		#normal-countdown>div>h3 { color: #52e2fe !important; }
+		#normal-countdown { margin-bottom: 60px !important; }
+		.modal { width: 92%; background: transparent; max-width: 1000px !important; height:65%; min-height: 300px; }
     </style>
 	
 </head>
 <body>
 	
-	<div class="main-area center-text" style="background-image:url(images/countdown-6-1600x900.jpg);" >
+	<div class="main-area center-text" style="background-image:url(images/thecreatiiivesbackgrount.jpg);" >
 		
 		<div class="display-table">
 			<div class="display-table-cell">
+				<img class="logo" src="{{ asset('images/logo.png') }}" alt="The creatiiives logo" />
 				
 				<h1 class="title"><b>{{__('home.comingsoontitle')}}</b></h1>
 				<p class="desc font-white">{{__('home.comingsoondescription')}}</p>
@@ -59,6 +74,10 @@
 		</div><!-- display-table-cell -->
 	</div><!-- main-area -->
 	
+	<div id="videopopup" class="modal">
+		<iframe width="100%" height="100%" src="https://www.youtube.com/embed/cgJOspxgIfQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+	</div>
+	
 	
 	<!-- SCIPTS -->
 	
@@ -67,6 +86,16 @@
 	<script src="{{ asset('common-js/jquery.countdown.min.js') }}"></script>
 	
 	<script src="{{ asset('common-js/scripts.js') }}"></script>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+
+	<script>
+		$(document).ready(function () {
+			$("#videopopup").modal({
+				fadeDuration: 100
+			});
+		})
+	</script>
 	
 </body>
 </html>

@@ -27,17 +27,18 @@
         .youtubeiconbg { background: #F43846 !important; }
         .linkediniconbg { background: #3AA4F8 !important; }
 		.logo { max-width: 300px; }
-		.main-area:after { background: none; }
-		.main-area { color: #232323 !important; }
-		.font-white { color: #232323 !important; }
+		/* .main-area:after { background: none; } */
+		.main-area { color: #fff !important; }
+		.font-white { color: #fff !important; }
 		.social-btn { color: white !important; }
-		.list-heading { color: #232323 !important; }
+		.list-heading { color: #fff !important; }
 		#videopopup { padding: 0px; }
 		.jquery-modal { padding: 0px; }
 		.submit-btn { background-color: #ff3f63 !important; }
-		#normal-countdown>div>h3 { color: #52e2fe !important; }
-		#normal-countdown { margin-bottom: 60px !important; }
-		.modal { width: 92%; background: transparent; max-width: 1000px !important; height:65%; min-height: 300px; }
+		#normal-countdown>div>h3 { color: #ff3f63 !important; }
+		#normal-countdown>div { margin-bottom: 60px !important; }
+		.main-area .logocont{ margin-bottom: 60px; position: absolute; top: 30px; width: 100%; left: 50%; transform: translateX(-50%); }
+		.modal { width: auto; background: transparent; max-width: 1000px !important; height:65%; min-height: 300px; }
     </style>
 	
 </head>
@@ -47,14 +48,15 @@
 		
 		<div class="display-table">
 			<div class="display-table-cell">
-				<img class="logo" src="{{ asset('images/logo.png') }}" alt="The creatiiives logo" />
-				
+				<div class="logocont">
+					<img class="logo" src="{{ asset('images/logo.png') }}" alt="The creatiiives logo" />
+				</div>
 				<h1 class="title"><b>{{__('home.comingsoontitle')}}</b></h1>
 				<p class="desc font-white">{{__('home.comingsoondescription')}}</p>
 				
 				<div class="email-input-area">
 					<form method="post">
-						<input class="email-input" name="email" type="text" placeholder="{{__('home.enteryouremail')}}"/>
+						<input class="email-input" id="email" name="email" type="email" placeholder="{{__('home.enteryouremail')}}"/>
 						<button class="submit-btn" name="submit" type="submit"><b>{{__('home.notifyus')}}</b></button>
 					</form>
 				</div><!-- email-input-area -->
@@ -94,6 +96,37 @@
 			$("#videopopup").modal({
 				fadeDuration: 100
 			});
+			$('.submit-btn').click
+				var email = document.getElementById('email');
+
+				var body = JSON.stringify({
+				first_name: undefined,
+				last_name: undefined,
+				email: email.value.trim(),
+				user_id: 13491309,
+				form_id: "9fa7e59b-fa5b-11e9-868a-baf8e180381a",
+				recaptcha: true,
+				});
+
+				// use xmlhttprequest to better support IE
+				var xhr = new XMLHttpRequest();
+
+				xhr.open('POST', 'https://api.sg-form.com/signup');
+				xhr.setRequestHeader('Content-Type', 'application/json');
+
+				xhr.onreadystatechange = function() {
+				if (this.readyState === XMLHttpRequest.DONE) {
+					// Status can be zero if the req failed to send
+					if (this.status < 200 || this.status >= 400) {
+						alert("Error")
+					} else {
+						alert("Error")
+					}
+				}
+				}
+
+				xhr.send(body);
+			}
 		})
 	</script>
 	

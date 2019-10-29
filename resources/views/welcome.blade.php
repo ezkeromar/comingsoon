@@ -27,6 +27,7 @@
         .youtubeiconbg { background: #F43846 !important; }
         .linkediniconbg { background: #3AA4F8 !important; }
 		.logo { max-width: 300px; }
+		.title { margin-top: 80px; }
 		/* .main-area:after { background: none; } */
 		.main-area { color: #fff !important; }
 		.font-white { color: #fff !important; }

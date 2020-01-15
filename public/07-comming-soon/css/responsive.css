@@ -70,9 +70,9 @@
 	
 	/* TIME COUNTDOWN */
 
-	#normal-countdown .time-sec{ height: 60px; width: 60px; }
+	#normal-countdown .time-sec{ height: 50px; width: 50px; }
 
-	#normal-countdown .time-sec .main-time{ line-height: 45px; font-size: 1.5em;}
+	#normal-countdown .time-sec .main-time{ line-height: 40px; font-size: 1.5em;}
 	
 }
 

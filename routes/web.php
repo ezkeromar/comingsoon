@@ -10,6 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('sendmail', 'ContactController@contact');
 
 Route::get('/{locale?}', function ($locale = null) {
     if (!empty($locale)) {

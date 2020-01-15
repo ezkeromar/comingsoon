@@ -27,19 +27,18 @@
         .youtubeiconbg { background: #F43846 !important; }
         .linkediniconbg { background: #3AA4F8 !important; }
 		.logo { max-width: 300px; }
-		.title { margin-top: 80px; }
-		/* .main-area:after { background: none; } */
+		.main-area:after { background: rgba(0, 0, 0, 0.7); }
 		.main-area { color: #fff !important; }
 		.font-white { color: #fff !important; }
 		.social-btn { color: white !important; }
 		.list-heading { color: #fff !important; }
 		#videopopup { padding: 0px; }
 		.jquery-modal { padding: 0px; }
-		.submit-btn { background-color: #ff3f63 !important; }
+		.submit-btn { background-color: #ff3f63 !important; min-width: 100px; }
 		#normal-countdown>div>h3 { color: #ff3f63 !important; }
 		#normal-countdown>div { margin-bottom: 60px !important; }
 		.main-area .logocont{ margin-bottom: 60px; position: absolute; top: 30px; width: 100%; left: 50%; transform: translateX(-50%); }
-		.modal { width: auto; background: transparent; max-width: 1000px !important; height:65%; min-height: 300px; }
+		.modal { background: transparent; max-width: 1000px !important; width: 90vw; height: 65vh; }
     </style>
 	
 </head>
@@ -56,21 +55,21 @@
 				<p class="desc font-white">{{__('home.comingsoondescription')}}</p>
 				
 				<div class="email-input-area">
-					<form method="post">
+					<form>
 						<input class="email-input" id="email" name="email" type="email" placeholder="{{__('home.enteryouremail')}}"/>
 						<button class="submit-btn" name="submit" type="submit"><b>{{__('home.notifyus')}}</b></button>
 					</form>
 				</div><!-- email-input-area -->
 							
-				<div id="normal-countdown" data-date="2020/01/01"></div>
+				<div id="normal-countdown" data-date="2020/01/22"></div>
 				
 				<ul class="social-btn">
 					<li class="list-heading">{{__('home.followus')}}</li>
 					<li><a title="Facebook" href="https://www.facebook.com/thecreatiiives"><i class="ion-social-facebook"></i></a></li>
 					<li><a title="Twitter" href="https://twitter.com/thecreatiiives"><i class="ion-social-twitter"></i></a></li>
-					<li><a title="Linkedin" href="https://www.linkedin.com/in/thecreatiiives/"><i class="youtubeiconbg ion-social-youtube"></i></a></li>
+					<li><a title="Linkedin" href="https://www.youtube.com/channel/UCZ5fcuQ23QUpKqTJPR9NQoQ"><i class="youtubeiconbg ion-social-youtube"></i></a></li>
 					<li><a title="Instagram" href="https://www.instagram.com/thecreatiiives"><i class="ion-social-instagram-outline"></i></a></li>
-					<li><a title="Youtube" href="https://www.youtube.com/channel/UCZ5fcuQ23QUpKqTJPR9NQoQ"><i class="linkediniconbg ion-social-linkedin"></i></a></li>
+					<li><a title="Youtube" href="https://www.linkedin.com/in/thecreatiiives/"><i class="linkediniconbg ion-social-linkedin"></i></a></li>
 				</ul>
 				
 			</div><!-- display-table -->
@@ -78,7 +77,7 @@
 	</div><!-- main-area -->
 	
 	<div id="videopopup" class="modal">
-		<iframe width="100%" height="100%" src="https://www.youtube.com/embed/cgJOspxgIfQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+		<iframe width="100%" height="100%" src="https://www.youtube.com/embed/h49jbFZw2vI" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 	</div>
 	
 	
@@ -97,37 +96,10 @@
 			$("#videopopup").modal({
 				fadeDuration: 100
 			});
-			$('.submit-btn').click
-				var email = document.getElementById('email');
-
-				var body = JSON.stringify({
-				first_name: undefined,
-				last_name: undefined,
-				email: email.value.trim(),
-				user_id: 13491309,
-				form_id: "9fa7e59b-fa5b-11e9-868a-baf8e180381a",
-				recaptcha: true,
-				});
-
-				// use xmlhttprequest to better support IE
-				var xhr = new XMLHttpRequest();
-
-				xhr.open('POST', 'https://api.sg-form.com/signup');
-				xhr.setRequestHeader('Content-Type', 'application/json');
-
-				xhr.onreadystatechange = function() {
-				if (this.readyState === XMLHttpRequest.DONE) {
-					// Status can be zero if the req failed to send
-					if (this.status < 200 || this.status >= 400) {
-						alert("Error")
-					} else {
-						alert("Error")
-					}
-				}
-				}
-
-				xhr.send(body);
-			}
+			$('.submit-btn').click(function (params) {
+				let email = $('#email').val()
+				window.open('/sendmail?email='+email, '_blank')
+			})
 		})
 	</script>
 	
